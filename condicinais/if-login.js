@@ -2,7 +2,7 @@ let login = "gt123"
 let senha = "123456"
 
 if (login == "gt123" && senha == 123456) {
-    console.log("PAGINA LIBERADA")
+    console.log("Redicionando painel")
 } else {
-    console.log("ACESSO NEGADO")
+    console.log("Erro, favor digite dados corretamente")
 }
