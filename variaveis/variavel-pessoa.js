@@ -12,8 +12,6 @@ let nota = 7 + 2
 console.log(nome)
 
 
-console.log(typeof nome)
-
 console.log(sobrenome)
 
 console.log(cpf)
@@ -25,3 +23,11 @@ console.log(idade)
 console.log(solteiro)
 
 console.log(nota)
+
+console.log(typeof nome)
+console.log(typeof sobrenome)
+console.log(typeof cpf)
+console.log(typeof rg)
+console.log(typeof idade)
+console.log(typeof solteiro)
+console.log(typeof nota)
