@@ -1,18 +1,31 @@
  const http = require('node:http')
-const porta = 8002
- 
+ const path = require('node:path')
+ const fs = require('node:fs')
+const porta = 8003
+
+const home = path.join(__dirname, 'pages/index.html')
+const sobre = path.join(__dirname, 'pages/sobre.html')
+
 const server = http.createServer((req, res)=>{
    const novaUrl = new URL(req.url, `http://${req.headers.host}`) 
    const caminhoUrl = novaUrl.pathname
-   if(caminhoUrl === '/'){
+   
+   if(caminhoUrl === '/public/estilo.css') {
    // o que vem da url?
-   res.statusCode = '201'
-    res.setHeader('Content-Type', 'text/html', 'charset=utf-8')
-   res.end('<h3>HTML Rocks!</h3>')
-} else {
+   res.statusCode = '200'
+    res.setHeader('Content-Type', 'text/html; charset=utf-8' )
+   return res.end(fs.readFileSync(sobre, 'utf-8')) // chamar o HTML
+
+    if(caminhoUrl === '/public/estilo.css') {
+   // o que vem da url?
+   res.statusCode = '200'
+    res.setHeader('Content-Type', 'text/html; charset=utf-8' )
+   return res.end(fs.readFileSync(sobre, 'utf-8')) // chamar o HTML
+}
+ else {
    res.statusCode = '401'
    res.setHeader('Content-Type', 'text/html', 'charset=utf-8')
-   res.end('<h3>401 Não autorizado</h3>')
+  return res.end('<h3>401 Não autorizado</h3>')
 }
 
 })
